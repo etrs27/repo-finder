@@ -3,6 +3,7 @@
 function displayResults(responseJson, maxResults) {
   $('#results-list').empty();
 
+  // No repos found
   console.log(responseJson);
   if (responseJson.length === 0 || responseJson.message === "Not Found"){
     $('#js-error-message').text(`No results found for that user. Please try again.`);
@@ -28,7 +29,7 @@ const getRepos = (username, maxResults) => {
       });
 }
 
-function watchForm() {
+function repoForm() {
   $('form').submit(event => {
     event.preventDefault();
     const username = $('#js-search-term').val();
@@ -42,4 +43,4 @@ function watchForm() {
   });
 }
 
-$(watchForm);
+$(repoForm);
